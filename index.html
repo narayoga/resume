@@ -66,6 +66,14 @@
             .no-print {
                 display: none !important;
             }
+            
+            /* Mencegah konten terpotong aneh antar halaman */
+            .dotted-border {
+                break-inside: avoid;
+            }
+            .section-header {
+                break-after: avoid;
+            }
         }
     </style>
 </head>
@@ -115,10 +123,10 @@
         </header>
 
         <!-- Grid Layout Utama -->
-        <div class="grid grid-cols-1 md:grid-cols-3 print:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 print:block gap-8">
             
             <!-- Kolom Kiri (Summary & Experience) -->
-            <div class="md:col-span-2 print:col-span-2">
+            <div class="md:col-span-2 print:w-[65%] print:float-left print:pr-8">
                 
                 <!-- SUMMARY Section -->
                 <section class="mb-8">
@@ -220,7 +228,7 @@
             </div>
 
             <!-- Kolom Kanan (Certifications) -->
-            <div class="md:col-span-1 print:col-span-1">
+            <div class="md:col-span-1 print:w-[35%] print:float-left">
                 <section>
                     <h3 class="section-header">CERTIFICATIONS</h3>
                     
@@ -261,6 +269,7 @@
                 </section>
             </div>
             
+            <div class="clear-both hidden print:block"></div>
         </div>
 
     </div>
@@ -268,10 +277,10 @@
     <!-- Halaman Kedua -->
     <div class="page-container page-break">
         <!-- Grid Layout Utama -->
-        <div class="grid grid-cols-1 md:grid-cols-3 print:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 print:block gap-8">
             
             <!-- Kolom Kiri (Experience Lanjutan & Education) -->
-            <div class="md:col-span-2 print:col-span-2">
+            <div class="md:col-span-2 print:w-[65%] print:float-left print:pr-8">
                 
                 <!-- EXPERIENCE Section (Lanjutan) -->
                 <section>
@@ -357,8 +366,9 @@
             </div>
 
             <!-- Kolom Kanan Kosong (Menyesuaikan grid layout) -->
-            <div class="md:col-span-1 print:col-span-1"></div>
+            <div class="md:col-span-1 print:w-[35%] print:float-left"></div>
             
+            <div class="clear-both hidden print:block"></div>
         </div>
 
     </div>
