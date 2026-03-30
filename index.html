@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Yoga Narayana</title>
+    <!-- Menggunakan Tailwind CSS dari CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Menggunakan font Inter untuk tampilan yang mirip -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+        .page-container {
+            width: 100%;
+            max-width: 850px;
+            margin: 2rem auto;
+            background-color: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            padding: 3rem;
+        }
+        /* Custom border untuk header bagian */
+        .section-header {
+            border-top: 2px solid #000;
+            border-bottom: 1px solid #000;
+            padding: 0.25rem 0;
+            margin-bottom: 1rem;
+            font-size: 1.125rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .dotted-border {
+            border-bottom: 1px dotted #cbd5e1;
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+        }
+        .dotted-border:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+        .text-primary {
+            color: #0088ff;
+        }
+        
+        /* CSS Khusus untuk tampilan saat di-print / Save as PDF */
+        @media print {
+            body {
+                background-color: white;
+            }
+            .page-container {
+                margin: 0 auto;
+                padding: 1rem 2rem;
+                box-shadow: none;
+                max-width: 100%;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+            .no-print {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="text-gray-900 relative">
+
+    <!-- Tombol Download PDF (Akan hilang saat di-print berkat class no-print) -->
+    <div class="fixed top-4 right-4 z-50 no-print">
+        <button onclick="window.print()" class="bg-[#0088ff] hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded shadow-lg flex items-center gap-2 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+            Download PDF
+        </button>
+    </div>
+
+    <div class="page-container">
+        
+        <!-- Bagian Header (Nama, Kontak, & Foto Profil) -->
+        <header class="flex justify-between items-start mb-10">
+            <div class="pt-2">
+                <h1 class="text-4xl font-bold uppercase tracking-tight text-black mb-1">Yoga Narayana</h1>
+                <h2 class="text-xl font-bold text-primary mb-4">Fullstack Web Developer</h2>
+                
+                <!-- Info Kontak -->
+                <div class="flex flex-wrap gap-x-4 gap-y-2 text-sm font-semibold text-gray-700">
+                    <div class="flex items-center gap-1">
+                        <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                        <span>087861752582</span>
+                    </div>
+                    <div class="flex items-center gap-1">
+                        <span class="text-primary font-bold text-base">@</span>
+                        <span>oganarayana@gmail.com</span>
+                    </div>
+                    <div class="flex items-center gap-1">
+                        <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+                        <a href="https://linkedin.com/in/yoga-narayana/" class="hover:underline">https://linkedin.com/in/yoga-narayana/</a>
+                    </div>
+                    <div class="flex items-center gap-1">
+                        <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        <span>Denpasar</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Foto Profil (Menggunakan link LinkedIn yang baru) -->
+            <div class="flex-shrink-0">
+                <img src="https://media.licdn.com/dms/image/v2/C5603AQEluMIlomYdtw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1660921978272?e=1776297600&v=beta&t=NCHnnefsVWmbcnXPcsAUmHcv7hAYZECLBx-tkk1J7tM" alt="Yoga Narayana" class="w-[120px] h-[120px] rounded-full object-cover border-2 border-gray-100 shadow-sm">
+            </div>
+        </header>
+
+        <!-- Grid Layout Utama -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- Kolom Kiri (Summary & Experience) -->
+            <div class="md:col-span-2">
+                
+                <!-- SUMMARY Section -->
+                <section class="mb-8">
+                    <h3 class="section-header">SUMMARY</h3>
+                    <div class="text-[0.85rem] text-gray-800 leading-relaxed space-y-4">
+                        <p>I build things on the web from e-commerce sites that actually sell, to full-on web apps with React.</p>
+                        <p>Over the past 3+ years, I've worked on 82cart the website agency. I handle everything from translating rough designs and client briefs into working sites, to integrating payment gateways, shipping, analytics, Facebook Business, and other third-party tools using PrestaShop, WordPress, WooCommerce.</p>
+                        <p>But I don't just code. I've been involved in the early stages of product development too, mapping out systems through UML and ERD diagrams, doing system analysis, and managing projects from MVP planning all the way to launch.</p>
+                        <p>When off-the-shelf solutions don't cut it, I write custom code, build tailored plugins, and develop features from scratch to fit what the project actually needs.</p>
+                    </div>
+                </section>
+
+                <!-- EXPERIENCE Section -->
+                <section>
+                    <h3 class="section-header">EXPERIENCE</h3>
+                    
+                    <!-- Pekerjaan 1 -->
+                    <div class="dotted-border">
+                        <h4 class="font-bold text-lg text-black">Frontend Web Developer</h4>
+                        <div class="font-bold text-primary mb-1">82cart E-commerce and Website Design</div>
+                        <div class="flex items-center gap-4 text-xs text-gray-500 font-medium mb-2">
+                            <span class="flex items-center gap-1">
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                12/2022 - Present
+                            </span>
+                            <span class="flex items-center gap-1">
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                Jakarta Utara
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Pekerjaan 2 -->
+                    <div class="dotted-border">
+                        <h4 class="font-bold text-lg text-black">Business Automation Engineer (n8n)</h4>
+                        <div class="font-bold text-primary mb-1">82cart E-commerce and Website Design</div>
+                        <div class="flex items-center gap-4 text-xs text-gray-500 font-medium mb-3">
+                            <span class="flex items-center gap-1">
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                02/2026 - 03/2026
+                            </span>
+                            <span class="flex items-center gap-1">
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                Jakarta, Indonesia
+                            </span>
+                        </div>
+                        <ul class="list-disc ml-4 text-[0.85rem] text-gray-800 space-y-1.5 leading-snug">
+                            <li>Engineered scalable business automation workflows using n8n to streamline sales, onboarding, and project management operations, significantly improving overall team efficiency.</li>
+                            <li>Developed 'The Sales Agent', an intelligent CRM system utilizing Google Gemini AI and LangChain to classify inbound leads, filter spam, and execute personalized email drip campaigns automatically.</li>
+                            <li>Built an automated 'Proposal Agent' that processes Fathom meeting webhooks and extracts key client requirements using AI to generate tailored Google Slides presentations, reducing proposal creation time from 2 hours to just 5 minutes.</li>
+                            <li>Streamlined client onboarding and project handover processes by integrating CMS webhooks with Google Workspace and Worksuite APIs, automating 100% of the new client onboarding process including folder creation, task delegation, and legal contract (BAST) generation.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Pekerjaan 3 -->
+                    <div class="dotted-border">
+                        <h4 class="font-bold text-lg text-black">WordPress E-commerce Developer</h4>
+                        <div class="font-bold text-primary mb-1">82cart E-commerce and Website Design</div>
+                        <div class="flex items-center gap-4 text-xs text-gray-500 font-medium mb-3">
+                            <span class="flex items-center gap-1">
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                11/2024 - 06/2025
+                            </span>
+                            <span class="flex items-center gap-1">
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                North Jakarta, Indonesia
+                            </span>
+                        </div>
+                        <ul class="list-disc ml-4 text-[0.85rem] text-gray-800 space-y-1.5 leading-snug">
+                            <li>Built custom WordPress websites from scratch based on Figma designs.</li>
+                            <li>Developed advanced front-end features like custom hamburger menus, color/size pickers, and product color logic with script.</li>
+                            <li>Customized WooCommerce backend columns, automated email templates, and implemented VIP membership functionality using PHP functions.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Pekerjaan 4 -->
+                    <div class="dotted-border">
+                        <h4 class="font-bold text-lg text-black">React Developer</h4>
+                        <div class="font-bold text-primary mb-1">Telkom Indonesia</div>
+                        <div class="flex items-center gap-4 text-xs text-gray-500 font-medium mb-3">
+                            <span class="flex items-center gap-1">
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                11/2022 - 12/2022
+                            </span>
+                            <span class="flex items-center gap-1">
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                Balikpapan, Indonesia
+                            </span>
+                        </div>
+                        <ul class="list-disc ml-4 text-[0.85rem] text-gray-800 space-y-1.5 leading-snug">
+                            <li>Developed battle room app.</li>
+                            <li>Profile-based application for clients to keep track of the worker's performance.</li>
+                            <li>App displayed comprehensive worker profiles and provided insightful statistics about each worker's performance.</li>
+                            <li>Presents a dynamic ODP distribution map held by each worker.</li>
+                            <li>Map distribution showcased in clustered format; users could access detailed information by clicking on each cluster.</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Kolom Kanan (Certifications) -->
+            <div class="md:col-span-1">
+                <section>
+                    <h3 class="section-header">CERTIFICATIONS</h3>
+                    
+                    <div class="dotted-border">
+                        <h4 class="font-bold text-[0.9rem] text-black">Mobile development (Android)</h4>
+                        <div class="text-[0.8rem] text-gray-500 mt-0.5">Bangkit led by Google, Goto, and Traveloka</div>
+                    </div>
+
+                    <div class="dotted-border">
+                        <h4 class="font-bold text-[0.9rem] text-black">Full-Stack Web Javascript</h4>
+                        <div class="text-[0.8rem] text-gray-500 mt-0.5">Binar Academy</div>
+                    </div>
+
+                    <div class="dotted-border">
+                        <h4 class="font-bold text-[0.9rem] text-black">Belajar Membuat Front-End Web untuk Pemula</h4>
+                        <div class="text-[0.8rem] text-gray-500 mt-0.5">Dicoding Academy</div>
+                    </div>
+
+                    <div class="dotted-border">
+                        <h4 class="font-bold text-[0.9rem] text-black">Web Development Path (Node.Js)</h4>
+                        <div class="text-[0.8rem] text-gray-500 mt-0.5">Progate</div>
+                    </div>
+
+                    <div class="dotted-border">
+                        <h4 class="font-bold text-[0.9rem] text-black">Python - Data Science</h4>
+                        <div class="text-[0.8rem] text-gray-500 mt-0.5">SanberCode</div>
+                    </div>
+
+                    <div class="dotted-border">
+                        <h4 class="font-bold text-[0.9rem] text-black">Code Yourself! An Introduction to Programming</h4>
+                        <div class="text-[0.8rem] text-gray-500 mt-0.5">Coursera</div>
+                    </div>
+
+                    <div class="dotted-border">
+                        <h4 class="font-bold text-[0.9rem] text-black">Dasar Programming untuk Data Science</h4>
+                        <div class="text-[0.8rem] text-gray-500 mt-0.5">Skill Academy by Ruangguru</div>
+                    </div>
+                </section>
+            </div>
+            
+        </div>
+
+    </div>
+
+    <!-- Halaman Kedua -->
+    <div class="page-container page-break">
+        <!-- Grid Layout Utama -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- Kolom Kiri (Experience Lanjutan & Education) -->
+            <div class="md:col-span-2">
+                
+                <!-- EXPERIENCE Section (Lanjutan) -->
+                <section>
+                    <h3 class="section-header">EXPERIENCE</h3>
+                    
+                    <!-- Pekerjaan Lanjutan 1 -->
+                    <div class="dotted-border">
+                        <h4 class="font-bold text-lg text-black">React Developer</h4>
+                        <div class="font-bold text-primary mb-1">Telkom Indonesia</div>
+                        <div class="flex items-center gap-4 text-xs text-gray-500 font-medium mb-3">
+                            <span class="flex items-center gap-1">
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                08/2022 - 11/2022
+                            </span>
+                            <span class="flex items-center gap-1">
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                Balikpapan, Indonesia
+                            </span>
+                        </div>
+                        <ul class="list-disc ml-4 text-[0.85rem] text-gray-800 space-y-1.5 leading-snug">
+                            <li>Worked in an agile environment with weekly sprint review, keep track of team stories/bugs in Github in 2 month</li>
+                            <li>Developed code to convert design wireframes into website elements under customer-specific design using React.js and more than 10+ additional library</li>
+                            <li>Managed over 20 states on components to reuse in another upcoming feature</li>
+                            <li>Tested 10+ React components over 75% passed score using jest</li>
+                            <li>Led the implementation of the Server-side rendering for 2 weeks to increase site speed up to 70% and more seamless web service submissions</li>
+                            <li>Make sure the code from this project stands already works by 100% Eslint rules</li>
+                        </ul>
+                    </div>
+
+                    <!-- Pekerjaan Lanjutan 2 -->
+                    <div class="dotted-border">
+                        <h4 class="font-bold text-lg text-black">Fullstack Web Bootcamp (Final Project)</h4>
+                        <div class="font-bold text-primary mb-1">Binar Academy</div>
+                        <div class="flex items-center gap-4 text-xs text-gray-500 font-medium mb-3">
+                            <span class="flex items-center gap-1">
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                05/2022 - 07/2022
+                            </span>
+                            <span class="flex items-center gap-1">
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                Indonesia
+                            </span>
+                        </div>
+                        <ul class="list-disc ml-4 text-[0.85rem] text-gray-800 space-y-1.5 leading-snug">
+                            <li>Worked in an agile environment with weekly sprint review, keep track of team stories/bugs in Github in 2 month</li>
+                            <li>Developed code to convert design wireframes into website elements under customer-specific design using React.js and more than 10+ additional library</li>
+                            <li>Managed over 20 states on components to reuse in another upcoming feature</li>
+                            <li>Tested 10+ React components over 75% passed score using jest</li>
+                            <li>Led the implementation of the Server-side rendering for 2 weeks to increase site speed up to 70% and more seamless web service submissions</li>
+                            <li>Make sure the code from this project stands already works by 100% Eslint rules</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- EDUCATION Section -->
+                <section class="mt-8">
+                    <h3 class="section-header">EDUCATION</h3>
+                    
+                    <!-- Pendidikan 1 -->
+                    <div class="dotted-border">
+                        <h4 class="font-bold text-lg text-black">Full-Stack Web</h4>
+                        <div class="font-bold text-primary mb-1">Binar Academy</div>
+                        <div class="flex items-center gap-4 text-xs text-gray-500 font-medium">
+                            <span class="flex items-center gap-1">
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                01/2021 - 12/2022
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Pendidikan 2 -->
+                    <div class="dotted-border">
+                        <h4 class="font-bold text-lg text-black">Bachelor of Technology, Management Information Systems</h4>
+                        <div class="font-bold text-primary mb-1">Universitas Terbuka</div>
+                        <div class="flex items-center gap-4 text-xs text-gray-500 font-medium">
+                            <span class="flex items-center gap-1">
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                01/2020 - 12/2024
+                            </span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Kolom Kanan Kosong (Menyesuaikan grid layout) -->
+            <div class="md:col-span-1"></div>
+            
+        </div>
+
+    </div>
+
+</body>
+</html>
