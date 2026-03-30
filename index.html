@@ -50,12 +50,15 @@
         @media print {
             body {
                 background-color: white;
+                -webkit-print-color-adjust: exact; /* Memastikan warna (biru) tetap tercetak */
+                print-color-adjust: exact;
             }
             .page-container {
                 margin: 0 auto;
                 padding: 1rem 2rem;
                 box-shadow: none;
                 max-width: 100%;
+                width: 100%;
             }
             .page-break {
                 page-break-before: always;
@@ -112,10 +115,10 @@
         </header>
 
         <!-- Grid Layout Utama -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 print:grid-cols-3 gap-8">
             
             <!-- Kolom Kiri (Summary & Experience) -->
-            <div class="md:col-span-2">
+            <div class="md:col-span-2 print:col-span-2">
                 
                 <!-- SUMMARY Section -->
                 <section class="mb-8">
@@ -217,7 +220,7 @@
             </div>
 
             <!-- Kolom Kanan (Certifications) -->
-            <div class="md:col-span-1">
+            <div class="md:col-span-1 print:col-span-1">
                 <section>
                     <h3 class="section-header">CERTIFICATIONS</h3>
                     
@@ -265,10 +268,10 @@
     <!-- Halaman Kedua -->
     <div class="page-container page-break">
         <!-- Grid Layout Utama -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 print:grid-cols-3 gap-8">
             
             <!-- Kolom Kiri (Experience Lanjutan & Education) -->
-            <div class="md:col-span-2">
+            <div class="md:col-span-2 print:col-span-2">
                 
                 <!-- EXPERIENCE Section (Lanjutan) -->
                 <section>
@@ -354,7 +357,7 @@
             </div>
 
             <!-- Kolom Kanan Kosong (Menyesuaikan grid layout) -->
-            <div class="md:col-span-1"></div>
+            <div class="md:col-span-1 print:col-span-1"></div>
             
         </div>
 
