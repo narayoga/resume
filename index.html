@@ -45,6 +45,14 @@
         .text-primary {
             color: #0088ff;
         }
+        .job-desc {
+            color: #9ca3af;
+            transition: color 0.3s ease;
+        }
+        .job-desc:hover {
+            color: #000;
+            cursor: pointer;
+        }
         
         /* CSS Khusus untuk tampilan saat di-print / Save as PDF */
         @media print {
@@ -173,7 +181,7 @@
                                 Jakarta, Indonesia
                             </span>
                         </div>
-                        <ul class="list-disc ml-4 text-[0.85rem] text-gray-800 space-y-1.5 leading-snug">
+                        <ul class="job-desc list-disc ml-4 text-[0.85rem] space-y-1.5 leading-snug">
                             <li>Engineered scalable business automation workflows using n8n to streamline sales, onboarding, and project management operations, significantly improving overall team efficiency.</li>
                             <li>Developed 'The Sales Agent', an intelligent CRM system utilizing Google Gemini AI and LangChain to classify inbound leads, filter spam, and execute personalized email drip campaigns automatically.</li>
                             <li>Built an automated 'Proposal Agent' that processes Fathom meeting webhooks and extracts key client requirements using AI to generate tailored Google Slides presentations, reducing proposal creation time from 2 hours to just 5 minutes.</li>
@@ -195,7 +203,7 @@
                                 North Jakarta, Indonesia
                             </span>
                         </div>
-                        <ul class="list-disc ml-4 text-[0.85rem] text-gray-800 space-y-1.5 leading-snug">
+                        <ul class="job-desc list-disc ml-4 text-[0.85rem] space-y-1.5 leading-snug">
                             <li>Built custom WordPress websites from scratch based on Figma designs.</li>
                             <li>Developed advanced front-end features like custom hamburger menus, color/size pickers, and product color logic with script.</li>
                             <li>Customized WooCommerce backend columns, automated email templates, and implemented VIP membership functionality using PHP functions.</li>
@@ -216,13 +224,15 @@
                                 Balikpapan, Indonesia
                             </span>
                         </div>
-                        <div class="text-[0.85rem] text-gray-800 mb-2 leading-snug">Developed battle room app.</div>
-                        <ul class="list-disc ml-4 text-[0.85rem] text-gray-800 space-y-1.5 leading-snug">
-                            <li>Profile-based application for clients to keep track of the worker's performance.</li>
-                            <li>App displayed comprehensive worker profiles and provided insightful statistics about each worker's performance.</li>
-                            <li>Presents a dynamic ODP distribution map held by each worker.</li>
-                            <li>Map distribution showcased in clustered format; users could access detailed information by clicking on each cluster.</li>
-                        </ul>
+                        <div class="job-desc text-[0.85rem] mb-2 leading-snug">
+                            <p class="mb-2">Developed battle room app.</p>
+                            <ul class="list-disc ml-4 space-y-1.5">
+                                <li>Profile-based application for clients to keep track of the worker's performance.</li>
+                                <li>App displayed comprehensive worker profiles and provided insightful statistics about each worker's performance.</li>
+                                <li>Presents a dynamic ODP distribution map held by each worker.</li>
+                                <li>Map distribution showcased in clustered format; users could access detailed information by clicking on each cluster.</li>
+                            </ul>
+                        </div>
                     </div>
                 </section>
             </div>
@@ -300,15 +310,15 @@
                                 Balikpapan, Indonesia
                             </span>
                         </div>
-                        <div class="text-[0.85rem] text-gray-800 mb-2 leading-snug">
-                            built planning access supervision application. a dashboard-shaped application that contains database views gets through the API and is built with React js.
+                        <div class="job-desc text-[0.85rem] mb-2 leading-snug">
+                            <p class="mb-2">built planning access supervision application. a dashboard-shaped application that contains database views gets through the API and is built with React js.</p>
+                            <ul class="list-disc ml-4 space-y-1.5">
+                                <li>Detailed dashboard applications with dynamic input functionality</li>
+                                <li>Developed a user-friendly application that handles CRUD operations across multiple menus</li>
+                                <li>The highlight of this project was incorporating different user roles with varying levels of permissions.</li>
+                                <li>Tested the application's APIs on different web displays to ensure optimal performance</li>
+                            </ul>
                         </div>
-                        <ul class="list-disc ml-4 text-[0.85rem] text-gray-800 space-y-1.5 leading-snug">
-                            <li>Detailed dashboard applications with dynamic input functionality</li>
-                            <li>Developed a user-friendly application that handles CRUD operations across multiple menus</li>
-                            <li>The highlight of this project was incorporating different user roles with varying levels of permissions.</li>
-                            <li>Tested the application's APIs on different web displays to ensure optimal performance</li>
-                        </ul>
                     </div>
 
                     <!-- Pekerjaan Lanjutan 2 -->
@@ -325,14 +335,16 @@
                                 Indonesia
                             </span>
                         </div>
-                        <div class="text-[0.85rem] text-gray-800 mb-2 leading-snug">Worked in an agile environment with weekly sprint review, kept track of team stories/bugs in Github for 2 months </div>
-                        <ul class="list-disc ml-4 text-[0.85rem] text-gray-800 space-y-1.5 leading-snug">
-                            <li>Developed code to convert design wireframes into website elements under customer-specific design using React.js and more than 10+ additional libraries </li>
-                            <li>Managed over 20 states on components to reuse in another upcoming feature</li>
-                            <li>Tested 10+ React components, over 75% passed score using jest</li>
-                            <li>Led the implementation of the Server-side rendering for 2 weeks to increase site speed up to 70% and more seamless web service submissions</li>
-                            <li>Make sure the code from this project already works by 100% Eslint rules</li>
-                        </ul>
+                        <div class="job-desc text-[0.85rem] mb-2 leading-snug">
+                            <p class="mb-2">Worked in an agile environment with weekly sprint review, kept track of team stories/bugs in Github for 2 months</p>
+                            <ul class="list-disc ml-4 space-y-1.5">
+                                <li>Developed code to convert design wireframes into website elements under customer-specific design using React.js and more than 10+ additional libraries </li>
+                                <li>Managed over 20 states on components to reuse in another upcoming feature</li>
+                                <li>Tested 10+ React components, over 75% passed score using jest</li>
+                                <li>Led the implementation of the Server-side rendering for 2 weeks to increase site speed up to 70% and more seamless web service submissions</li>
+                                <li>Make sure the code from this project already works by 100% Eslint rules</li>
+                            </ul>
+                        </div>
                     </div>
                 </section>
 
