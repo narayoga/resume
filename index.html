@@ -58,30 +58,46 @@
         @media print {
             body {
                 background-color: white;
-                -webkit-print-color-adjust: exact; /* Memastikan warna (biru) tetap tercetak */
+                -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
-            }
-            .page-container {
-                margin: 0 auto;
-                padding: 1rem 2rem;
-                box-shadow: none;
-                max-width: 100%;
-                width: 100%;
-            }
-            .page-break {
-                page-break-before: always;
             }
             .no-print {
                 display: none !important;
             }
-            
-            /* Mencegah konten terpotong aneh antar halaman */
+            .print-hide {
+                display: none !important;
+            }
             .dotted-border {
                 break-inside: avoid;
             }
             .section-header {
                 break-after: avoid;
             }
+            .job-desc {
+                color: #000 !important;
+            }
+
+            /* Flatten structure for reordering */
+            .resume-wrapper {
+                display: flex;
+                flex-direction: column;
+                max-width: 100%;
+                padding: 1rem 2rem;
+            }
+            .resume-wrapper > .page-container {
+                display: contents;
+            }
+            .print-flatten {
+                display: contents !important;
+            }
+
+            /* Section ordering: Header > Summary > Experience > Education > Certifications */
+            .print-order-1 { order: 1; width: 100%; }
+            .print-order-2 { order: 2; width: 100%; }
+            .print-order-3 { order: 3; width: 100%; }
+            .print-order-4 { order: 4; width: 100%; }
+            .print-order-5 { order: 5; width: 100%; }
+            .print-order-6 { order: 6; width: 100%; }
         }
     </style>
 </head>
@@ -95,10 +111,11 @@
         </button>
     </div>
 
+    <div class="resume-wrapper">
     <div class="page-container">
-        
+
         <!-- Bagian Header (Nama, Kontak, & Foto Profil) -->
-        <header class="flex justify-between items-start mb-10">
+        <header class="flex justify-between items-start mb-10 print-order-1">
             <div class="pt-2">
                 <h1 class="text-4xl font-bold uppercase tracking-tight text-black mb-1">Yoga Narayana</h1>
                 <h2 class="text-xl font-bold text-primary mb-4">Fullstack Web Developer</h2>
@@ -126,18 +143,18 @@
             
             <!-- Foto Profil (Menggunakan link LinkedIn yang baru) -->
             <div class="flex-shrink-0">
-                <img src="https://media.licdn.com/dms/image/v2/C5603AQEluMIlomYdtw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1660921978272?e=1776297600&v=beta&t=NCHnnefsVWmbcnXPcsAUmHcv7hAYZECLBx-tkk1J7tM" alt="Yoga Narayana" class="w-[120px] h-[120px] rounded-full object-cover border-2 border-gray-100 shadow-sm">
+                <img src="https://res.cloudinary.com/alternate-cloud/image/upload/v1777707712/nr22lyidwdbvo9uuisfk.png" alt="Yoga Narayana" class="w-[120px] h-[120px] rounded-full object-cover border-2 border-gray-100 shadow-sm">
             </div>
         </header>
 
         <!-- Grid Layout Utama -->
-        <div class="grid grid-cols-1 md:grid-cols-3 print:block gap-8">
+        <div class="print-flatten grid grid-cols-1 md:grid-cols-3 print:block gap-8">
             
             <!-- Kolom Kiri (Summary & Experience) -->
-            <div class="md:col-span-2 print:w-[65%] print:float-left print:pr-8">
+            <div class="print-flatten md:col-span-2 print:w-[65%] print:float-left print:pr-8">
                 
                 <!-- SUMMARY Section -->
-                <section class="mb-8">
+                <section class="mb-8 print-order-2">
                     <h3 class="section-header">SUMMARY</h3>
                     <div class="text-[0.85rem] text-gray-800 leading-relaxed space-y-4">
                         <p>I build things on the web from e-commerce sites that actually sell, to full-on web apps with React.</p>
@@ -148,7 +165,7 @@
                 </section>
 
                 <!-- EXPERIENCE Section -->
-                <section>
+                <section class="print-order-3">
                     <h3 class="section-header">EXPERIENCE</h3>
                     
                     <!-- Pekerjaan 1 -->
@@ -238,8 +255,8 @@
             </div>
 
             <!-- Kolom Kanan (Certifications) -->
-            <div class="md:col-span-1 print:w-[35%] print:float-left">
-                <section>
+            <div class="print-flatten md:col-span-1 print:w-[35%] print:float-left">
+                <section class="print-order-6">
                     <h3 class="section-header">CERTIFICATIONS</h3>
                     
                     <div class="dotted-border">
@@ -279,7 +296,7 @@
                 </section>
             </div>
             
-            <div class="clear-both hidden print:block"></div>
+            <div class="clear-both hidden print-hide"></div>
         </div>
 
     </div>
@@ -287,14 +304,14 @@
     <!-- Halaman Kedua -->
     <div class="page-container page-break">
         <!-- Grid Layout Utama -->
-        <div class="grid grid-cols-1 md:grid-cols-3 print:block gap-8">
+        <div class="print-flatten grid grid-cols-1 md:grid-cols-3 print:block gap-8">
             
             <!-- Kolom Kiri (Experience Lanjutan & Education) -->
-            <div class="md:col-span-2 print:w-[65%] print:float-left print:pr-8">
+            <div class="print-flatten md:col-span-2 print:w-[65%] print:float-left print:pr-8">
                 
                 <!-- EXPERIENCE Section (Lanjutan) -->
-                <section>
-                    <h3 class="section-header">EXPERIENCE</h3>
+                <section class="print-order-4">
+                    <h3 class="section-header print-hide">EXPERIENCE</h3>
                     
                     <!-- Pekerjaan Lanjutan 1 -->
                     <div class="dotted-border">
@@ -349,7 +366,7 @@
                 </section>
 
                 <!-- EDUCATION Section -->
-                <section class="mt-8">
+                <section class="mt-8 print-order-5">
                     <h3 class="section-header">EDUCATION</h3>
                     
                     <!-- Pendidikan 1 -->
@@ -379,11 +396,12 @@
             </div>
 
             <!-- Kolom Kanan Kosong (Menyesuaikan grid layout) -->
-            <div class="md:col-span-1 print:w-[35%] print:float-left"></div>
+            <div class="print-flatten md:col-span-1 print:w-[35%] print:float-left"></div>
             
-            <div class="clear-both hidden print:block"></div>
+            <div class="clear-both hidden print-hide"></div>
         </div>
 
+    </div>
     </div>
 
 </body>
