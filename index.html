@@ -54,6 +54,48 @@
             cursor: pointer;
         }
         
+        /* Tooltip Styles */
+        .tooltip-box {
+            position: fixed;
+            z-index: 9999;
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 10px 14px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.18s ease;
+            max-width: 320px;
+            min-width: 180px;
+        }
+        .tooltip-box.visible {
+            opacity: 1;
+        }
+        .tooltip-title {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            color: #6b7280;
+            margin-bottom: 7px;
+        }
+        .tooltip-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        .tooltip-tag {
+            background: #eff6ff;
+            color: #0088ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 4px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 2px 7px;
+            white-space: nowrap;
+        }
+
         /* CSS Khusus untuk tampilan saat di-print / Save as PDF */
         @media print {
             body {
@@ -198,7 +240,7 @@
                                 Jakarta, Indonesia
                             </span>
                         </div>
-                        <ul class="job-desc list-disc ml-4 text-[0.85rem] space-y-1.5 leading-snug">
+                        <ul class="job-desc list-disc ml-4 text-[0.85rem] space-y-1.5 leading-snug" data-tools="n8n,Google Gemini AI,LangChain,Fathom Webhooks,Google Slides API,Google Workspace API,Worksuite API">
                             <li>Engineered scalable business automation workflows using n8n to streamline sales, onboarding, and project management operations, significantly improving overall team efficiency.</li>
                             <li>Developed 'The Sales Agent', an intelligent CRM system utilizing Google Gemini AI and LangChain to classify inbound leads, filter spam, and execute personalized email drip campaigns automatically.</li>
                             <li>Built an automated 'Proposal Agent' that processes Fathom meeting webhooks and extracts key client requirements using AI to generate tailored Google Slides presentations, reducing proposal creation time from 2 hours to just 5 minutes.</li>
@@ -220,7 +262,7 @@
                                 North Jakarta, Indonesia
                             </span>
                         </div>
-                        <ul class="job-desc list-disc ml-4 text-[0.85rem] space-y-1.5 leading-snug">
+                        <ul class="job-desc list-disc ml-4 text-[0.85rem] space-y-1.5 leading-snug" data-tools="WordPress,WooCommerce,Figma,PHP,JavaScript,HTML/CSS,Elementor">
                             <li>Built custom WordPress websites from scratch based on Figma designs.</li>
                             <li>Developed advanced front-end features like custom hamburger menus, color/size pickers, and product color logic with script.</li>
                             <li>Customized WooCommerce backend columns, automated email templates, and implemented VIP membership functionality using PHP functions.</li>
@@ -241,7 +283,7 @@
                                 Balikpapan, Indonesia
                             </span>
                         </div>
-                        <div class="job-desc text-[0.85rem] mb-2 leading-snug">
+                        <div class="job-desc text-[0.85rem] mb-2 leading-snug" data-tools="React.js,REST API,Leaflet Maps,JavaScript,Axios">
                             <p class="mb-2">Developed battle room app.</p>
                             <ul class="list-disc ml-4 space-y-1.5">
                                 <li>Profile-based application for clients to keep track of the worker's performance.</li>
@@ -327,7 +369,7 @@
                                 Balikpapan, Indonesia
                             </span>
                         </div>
-                        <div class="job-desc text-[0.85rem] mb-2 leading-snug">
+                        <div class="job-desc text-[0.85rem] mb-2 leading-snug" data-tools="React.js,REST API,JavaScript,Axios,Postman,Role-based Auth">
                             <p class="mb-2">built planning access supervision application. a dashboard-shaped application that contains database views gets through the API and is built with React js.</p>
                             <ul class="list-disc ml-4 space-y-1.5">
                                 <li>Detailed dashboard applications with dynamic input functionality</li>
@@ -352,7 +394,7 @@
                                 Indonesia
                             </span>
                         </div>
-                        <div class="job-desc text-[0.85rem] mb-2 leading-snug">
+                        <div class="job-desc text-[0.85rem] mb-2 leading-snug" data-tools="React.js,Next.js,Jest,ESLint,GitHub,Agile/Scrum,Node.js">
                             <p class="mb-2">Worked in an agile environment with weekly sprint review, kept track of team stories/bugs in Github for 2 months</p>
                             <ul class="list-disc ml-4 space-y-1.5">
                                 <li>Developed code to convert design wireframes into website elements under customer-specific design using React.js and more than 10+ additional libraries </li>
@@ -404,5 +446,44 @@
     </div>
     </div>
 
+    <!-- Tooltip Box -->
+    <div id="tooltip-box" class="tooltip-box no-print">
+        <div class="tooltip-title">Tools Used</div>
+        <div class="tooltip-tags" id="tooltip-tags"></div>
+    </div>
+
+    <script>
+        const tooltip = document.getElementById('tooltip-box');
+        const tagsContainer = document.getElementById('tooltip-tags');
+
+        document.querySelectorAll('.job-desc[data-tools]').forEach(el => {
+            el.addEventListener('mouseenter', (e) => {
+                const tools = el.dataset.tools.split(',').map(t => t.trim());
+                tagsContainer.innerHTML = tools.map(t => `<span class="tooltip-tag">${t}</span>`).join('');
+                tooltip.classList.add('visible');
+                positionTooltip(e);
+            });
+
+            el.addEventListener('mousemove', positionTooltip);
+
+            el.addEventListener('mouseleave', () => {
+                tooltip.classList.remove('visible');
+            });
+        });
+
+        function positionTooltip(e) {
+            const pad = 14;
+            const tw = tooltip.offsetWidth;
+            const th = tooltip.offsetHeight;
+            let x = e.clientX + pad;
+            let y = e.clientY - th - pad;
+
+            if (x + tw > window.innerWidth - 8) x = e.clientX - tw - pad;
+            if (y < 8) y = e.clientY + pad;
+
+            tooltip.style.left = x + 'px';
+            tooltip.style.top  = y + 'px';
+        }
+    </script>
 </body>
 </html>
